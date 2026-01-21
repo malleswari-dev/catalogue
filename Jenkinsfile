@@ -26,13 +26,13 @@ pipeline {
             }
         }    
 
-        stage('Test') {
+        stage('Install Dependencies') {
             steps {
-                script {
+                script{
                     sh """
-                        echo "Testing"
+                        npm install
                     """
-                }  
+                }
             }
         }
 
