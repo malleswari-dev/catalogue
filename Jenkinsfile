@@ -4,7 +4,6 @@ pipeline {
             label 'AGENT-1'
         }
     }
-
     environment {
         COURSE = "Jenkins"
         appVersion = ""
@@ -31,6 +30,16 @@ pipeline {
                 script{
                     sh """
                         npm install
+                    """
+                }
+            }
+        }
+        stage('Build image') {
+            steps {
+                script{
+                    sh """
+                        docker build -t catalogue:${appVersion} .
+                        docker images
                     """
                 }
             }
