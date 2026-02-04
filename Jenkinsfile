@@ -37,6 +37,15 @@ pipeline {
                 }
             }
         }
+        stage('Unit Test') {
+            steps {
+                script{
+                    sh """
+                        npm test
+                    """
+                }
+            }
+        }
         stage('Build image') {
             steps {
                 script{
